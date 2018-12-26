@@ -10,8 +10,7 @@ footer: "南京大学 · 软件分析与测试"
 
 ##### 2018-12-29
 
-##### Github项目地址 [interpy](https://github.com/bryce-ma/interpy)
-
+##### Github项目地址 [InterPy](https://github.com/bryce-ma/interpy)
 
 ---
 
@@ -46,11 +45,11 @@ def main():
 
 <!-- paginate: true -->
 
-# ![pycallgraph](./asset/pycallgraph.png)
+# ![pycallgraph0](asset/pycallgraph.png)
 
 ---
 
-# ![pycallgragh](asset/pycallgraphapple.png)
+# ![pycallgragh1](asset/pycallgraphapple.png)
 
 ---
 
