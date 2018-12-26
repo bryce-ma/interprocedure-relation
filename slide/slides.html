@@ -84,12 +84,45 @@ article#presentation > svg > foreignObject[data-marpit-advanced-background="pseu
 <h5>Github项目地址 <a href="https://github.com/bryce-ma/interprocedure-relation">interprocedure-relation</a></h5>
 <footer>南京大学 · 软件分析与测试</footer>
 </section>
-</foreignObject></svg><svg viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="2" data-footer="南京大学 · 软件分析与测试" data-paginate="true" data-theme="uncover" data-marpit-pagination="2" style="--footer:南京大学 · 软件分析与测试;--paginate:true;--theme:uncover;">
+</foreignObject></svg><svg viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="2" data-footer="南京大学 · 软件分析与测试" data-theme="uncover" style="--footer:南京大学 · 软件分析与测试;--theme:uncover;">
 <h1>PyCallGraph</h1>
-<p><img src="./asset/pycallgraph.png" alt="pycallgraph" /></p>
 <footer>南京大学 · 软件分析与测试</footer>
 </section>
-</foreignObject></svg><svg viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="3" data-footer="南京大学 · 软件分析与测试" data-paginate="true" data-theme="uncover" data-marpit-pagination="3" style="--footer:南京大学 · 软件分析与测试;--paginate:true;--theme:uncover;">
+</foreignObject></svg><svg viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="3" data-footer="南京大学 · 软件分析与测试" data-theme="uncover" style="--footer:南京大学 · 软件分析与测试;--theme:uncover;">
+<h1>一个例子</h1>
+<pre><code class="language-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Apple</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, name)</span>:</span>
+        self.name = name
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">color</span><span class="hljs-params">(self)</span>:</span>
+        lname = self.name.lower()
+        <span class="hljs-keyword">if</span> lname == <span class="hljs-string">'gala'</span> <span class="hljs-keyword">or</span> lname == <span class="hljs-string">'fuji'</span>:
+            self.red(self.name)
+            <span class="hljs-keyword">return</span> <span class="hljs-string">'red'</span>
+        <span class="hljs-keyword">else</span>:
+            self.green(self.name)
+            <span class="hljs-keyword">return</span> <span class="hljs-string">'green'</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">red</span><span class="hljs-params">(self, rname)</span>:</span>
+        print(<span class="hljs-string">'Are u want to eat red apples? so '</span>+ rname + <span class="hljs-string">' is red. Plz'</span>)
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">green</span><span class="hljs-params">(self, gname)</span>:</span>
+         print(<span class="hljs-string">'Are u want to eat green apples? so '</span>+ gname + <span class="hljs-string">' is red. Plz'</span>)
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>:</span>
+    apple = Apple(<span class="hljs-string">'fuji'</span>)
+    color = apple.color()
+    print(<span class="hljs-string">'The color of this apple is: '</span>+ color)
+</code></pre>
+<footer>南京大学 · 软件分析与测试</footer>
+</section>
+</foreignObject></svg><svg viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="4" data-footer="南京大学 · 软件分析与测试" data-paginate="true" data-theme="uncover" data-marpit-pagination="4" style="--footer:南京大学 · 软件分析与测试;--paginate:true;--theme:uncover;">
+<h1><img src="./asset/pycallgraph.png" alt="pycallgraph" /></h1>
+<footer>南京大学 · 软件分析与测试</footer>
+</section>
+</foreignObject></svg><svg viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="5" data-footer="南京大学 · 软件分析与测试" data-paginate="true" data-theme="uncover" data-marpit-pagination="5" style="--footer:南京大学 · 软件分析与测试;--paginate:true;--theme:uncover;">
+<h1>不足</h1>
+<ul>
+<li>需要运行</li>
+<li>代码覆盖不全</li>
+</ul>
 <footer>南京大学 · 软件分析与测试</footer>
 </section>
 </foreignObject></svg></article><script>!function(){"use strict";const t="data-marp-fitting",e="data-marp-fitting-code",i="data-marp-fitting-math",a=(t,e,i)=>{if(t.getAttribute(e)!==i)return t.setAttribute(e,i),!0};!function(r=!0){!function r(n=!0){Array.from(document.querySelectorAll(`svg[${t}="svg"]`),t=>{const r=t.firstChild,n=r.firstChild,{scrollWidth:o,scrollHeight:s}=n;let l,c=1;if(t.hasAttribute(e)&&(l=t.parentElement.parentElement),t.hasAttribute(i)&&(l=t.parentElement),l){const t=getComputedStyle(l),e=Math.ceil(l.clientWidth-parseFloat(t.paddingLeft)-parseFloat(t.paddingRight));e&&(c=e)}const d=Math.max(o,c),p=Math.max(s,1),g=`0 0 ${d} ${p}`;a(r,"width",`${d}`),a(r,"height",`${p}`),a(t,"preserveAspectRatio",getComputedStyle(t).getPropertyValue("--preserve-aspect-ratio")||"xMinYMin meet"),a(t,"viewBox",g)&&t.classList.toggle("__reflow__")}),n&&window.requestAnimationFrame(()=>r(n))}(r)}()}();
