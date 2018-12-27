@@ -3,6 +3,7 @@ import log
 import logging
 import os
 from ast_modifier import AstModifier
+from analyzer import Analyzer
 
 class Demo():
     def __init__(self):
@@ -16,6 +17,10 @@ class Demo():
         # simplify the AST
         astmodif.simplify()
         self.log.info('simplified: ' + astmodif.dump(astmodif.simpast))
+
+        # analyse
+        analyzer = Analyzer()
+        analyzer.analyze(astmodif.simpast)
 
 def main(args):
     demo = Demo()

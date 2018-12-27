@@ -1,5 +1,5 @@
 import ast
-from visitor import Visitor
+from visitor0 import Visitor0
 
 class AstModifier():
     def __init__(self, filename:str):

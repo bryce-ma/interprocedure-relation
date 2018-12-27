@@ -16,11 +16,6 @@ class Visitor0(ast.NodeTransformer):
             logger.debug('removed: ' + ast.dump(e))
         return [self.visit(node.test)] + [self.visit(x) for x in node.body]
 
-    def visit_Assign(self, node):
-        logger.debug('visit_Assign: ' + ast.dump(node))
-        logger.debug('removed: ' + ast.dump(node.value))
-        return super().generic_visit(node.value)
-
     def visit_For(self, node):
         logger.debug('visit_For: ' + ast.dump(node))
         if isinstance(node.iter, ast.List):

@@ -18,19 +18,21 @@
 
 ##  version 0.2 (TODO)
 
-实现整个Python项目所有源代码（多文件）的过程间调用关系
+支持多模块的Python项目源代码（多文件）
 
 ## test
+
+> Please use Python 3 to run all the tests and the demo
+
 #### run all tests
 
-> python -m unittest discover
+> python3 -m unittest discover
 
 #### run specific test
 
-> python -m unittest test.test_case
+> python3 -m unittest test.test_case
 
 ## run demo from command line
-
 
 > python3 ./interp/demo.py ./test/inputfilename.py
 
