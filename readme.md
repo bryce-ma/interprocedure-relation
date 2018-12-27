@@ -34,7 +34,7 @@
 
 ## run demo from command line
 
-> python3 ./interp/demo.py ./test/inputfilename.py
+> python3 ./interpy/demo.py ./test/inputfilename.py
 
 ### or run demo with default file ./test/apple.py
-> python3 ./interp/demo.py
+> python3 ./interpy/demo.py
