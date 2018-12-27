@@ -66,12 +66,45 @@ def main():
 - 静态分析 无须运行源代码
 - 代码覆盖100%
 - 版本0.1只支持单个Python源文件
+- TODO：多模块多文件分析
 
 ---
 
+## Three Passes 
 
+# ![pass](passes.png)
 
 ---
+
+# First pass
+
+- trivial
+- python api: ast.parse()
+
+---
+
+# Second pass
+
+- 简化抽象语法树
+- 去除控制流信息
+- for loop, while loop, if, etc.
+- python api: ast.NodeVisitor
+
+---
+
+# Third pass
+
+- ./interp/interpreter.py
+
+```python
+# interpreter.py
+
+```
+
+---
+# Demo time
+---
+
 
 # Q&A
 

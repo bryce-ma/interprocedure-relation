@@ -1,6 +1,8 @@
 # the main program of this project
-from .log import logging
-from .ast_modifier import AstModifier
+import log
+import logging
+import os
+from ast_modifier import AstModifier
 
 class Demo():
     def __init__(self):
@@ -10,12 +12,18 @@ class Demo():
         astmodif = AstModifier(filename)
         # get origin AST
         originTree = astmodif.origin()
+        self.log.info('origin: ' + astmodif.dump(originTree))
         # simplify the AST
-        
+        astmodif.simplify()
+        self.log.info('simplified: ' + astmodif.dump(astmodif.simpast))
 
-def main():
+def main(args):
     demo = Demo()
-    demo.start('hello.py')
+    defaultfile = './test/apple.py'
+    if len(args) > 1:
+        defaultfile = args[1]
+    demo.start(os.path.abspath(defaultfile))
 
 if __name__ == "__main__":
-    main()
+    import sys
+    main(sys.argv)

@@ -7,6 +7,8 @@
   - [test](#test)
       - [run all tests](#run-all-tests)
       - [run specific test](#run-specific-test)
+  - [run demo from command line](#run-demo-from-command-line)
+    - [or run demo with default file ./test/apple.py](#or-run-demo-with-default-file-testapplepy)
 
 <!-- /TOC -->
 
@@ -26,3 +28,11 @@
 #### run specific test
 
 > python -m unittest test.test_case
+
+## run demo from command line
+
+
+> python3 ./interp/demo.py ./test/inputfilename.py
+
+### or run demo with default file ./test/apple.py
+> python3 ./interp/demo.py

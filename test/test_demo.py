@@ -1,7 +1,7 @@
 import unittest
 import os
 
-from interpRelation import demo
+from interpy import demo
 
 class DemoTest(unittest.TestCase):
 
