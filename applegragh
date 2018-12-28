@@ -1,0 +1,11 @@
+digraph apple {
+	"Apple.color" [label="Apple.color"]
+	"Apple.color" -> "Apple.red"
+	"Apple.color" -> "Apple.red"
+	"Apple.color" -> "Apple.red"
+	"Apple.color" -> "Apple.red"
+	"Apple.color" -> "Apple.red"
+	"Apple.color" -> "Apple.red"
+	"Apple.color" -> "Apple.red"
+	"Apple.color" -> "Apple.red"
+}

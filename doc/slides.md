@@ -47,11 +47,11 @@ def main():
 
 <!-- paginate: true -->
 
-# ![pycallgraph0](asset/pycallgraph.png)
+# ![pycallgraph0](./asset/pycallgraph.png)
 
 ---
 
-# ![pycallgragh1](asset/pycallgraphapple.png)
+# ![pycallgragh1](./asset/pycallgraphapple.png)
 
 ---
 
@@ -73,7 +73,7 @@ def main():
 
 ## Four Passes 
 
-# ![pass](passes.png)
+# ![pass](./passes.png)
 
 ---
 

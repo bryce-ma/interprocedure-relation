@@ -1,7 +1,6 @@
 import ast
 import log
 import logging
-from typing import Optional
 
 logger = logging.getLogger(name=__name__)
 # add _fullname attr to node
@@ -48,37 +47,21 @@ class Visitor1(ast.NodeVisitor):
         upper = self.getupper(node)
         self.setfullname(node, upper)
         logger.debug('ClassDef fullname:' + node._fullname)
+        self.table[node._fullname] = node
         self.visitbody(node)
 
     def visit_FunctionDef(self, node):
         upper = self.getupper(node)
         self.setfullname(node, upper)
         logger.debug('FunctionDef fullname:' + node._fullname)
+        self.table[node._fullname] = node
         self.visitbody(node)
-
-    def visit_Assign(self, node):
-        logger.debug('Assign fullname:')
-        logger.info('Call node:' + ast.dump(node))
-        upper = self.getupper(node)
-        
-
-    def visit_Call(self, node):
-        logger.debug('Call fullname:')
-        logger.info('Call node:' + ast.dump(node))
         
     def visitlist(self, node, upper):
         for x in node:
             if not isinstance(x, list):
                 x._upper = upper
             self.visit(x)
-
-    def locate_self(self,node) -> Optional[ast.AST]:
-        while hasattr(node, '_upper'):
-            if isinstance(node._upper, ast.ClassDef):
-                return node._upper
-            else:
-                node = node._upper
-        return None
 
 
 

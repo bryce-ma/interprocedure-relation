@@ -10,6 +10,7 @@
     - [or run demo with default file ./test/apple.py](#or-run-demo-with-default-file-testapplepy)
     - [run all tests](#run-all-tests)
     - [run specific test](#run-specific-test)
+  - [build slides](#build-slides)
 
 <!-- /TOC -->
 
@@ -43,3 +44,7 @@ See [documentation](doc/documentation.md) and [presentation](doc/slides.html) un
 ### run specific test
 
 > python3 -m unittest test.test_case
+
+## build slides
+
+> marp --pdf --allow-local-files doc/slides.md
