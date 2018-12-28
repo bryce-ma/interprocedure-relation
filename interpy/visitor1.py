@@ -63,6 +63,24 @@ class Visitor1(ast.NodeVisitor):
                 x._upper = upper
             self.visit(x)
 
+    def visit_Assign(self, node):
+        upper = self.getupper(node)
+        self.setfullname(node, upper)
+        right = node.value
+        left = node.targets
+        for lname in left:
+            if isinstance(lname, ast.Name):
+                id = self.getid(lname)
+                fullname = namejoin(node._fullname, id)
+                self.table[fullname] = right
+
+    def getid(self, name: ast.Name):
+        if isinstance(name, ast.Name):
+            return name.id
+
+
+
+
 
 
 
