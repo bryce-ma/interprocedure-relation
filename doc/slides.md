@@ -1,7 +1,7 @@
 ---
 theme: uncover
 class:
-footer: "南京大学 · 软件分析与测试"
+footer: "南京大学 · 软件分析与测试 · 2018"
 ---
 
 # Python过程间调用分析
@@ -15,6 +15,8 @@ footer: "南京大学 · 软件分析与测试"
 ---
 
 # PyCallGraph
+
+### [项目地址](https://github.com/gak/pycallgraph/#python-call-graph)
 
 ---
 
@@ -65,12 +67,11 @@ def main():
 
 - 静态分析 无须运行源代码
 - 代码覆盖100%
-- 版本0.1只支持单个Python源文件
-- TODO：多模块多文件分析
+- 现版本支持单个Python源文件
 
 ---
 
-## Three Passes 
+## Four Passes 
 
 # ![pass](passes.png)
 
@@ -88,22 +89,30 @@ def main():
 - 简化抽象语法树
 - 去除控制流信息
 - for loop, while loop, if, etc.
-- python api: ast.NodeVisitor
+- ast.NodeTransformer
 
 ---
 
 # Third pass
 
-- ./interp/interpreter.py
+- 从AST中解析过程信息
+- 类似于Python的import过程
 
-```python
-# interpreter.py
+---
 
-```
+# Fourth pass
+
+- 获取过程间调用信息
+- 类似于Python的解释执行过程
 
 ---
 # Demo time
 ---
+# TODOs
+
+- 多文件解析
+- 处理Python动态性
+___
 
 
 # Q&A

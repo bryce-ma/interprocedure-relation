@@ -12,7 +12,6 @@ def namejoin(name0:str, name1:str):
     else:
         return name1 if len(name0) == 0 else name0+ '.' + name1
 
-
 class Visitor1(ast.NodeVisitor):
     def __init__(self):
         self.table = dict()
@@ -57,9 +56,15 @@ class Visitor1(ast.NodeVisitor):
         logger.debug('FunctionDef fullname:' + node._fullname)
         self.visitbody(node)
 
+    def visit_Assign(self, node):
+        logger.debug('Assign fullname:')
+        logger.info('Call node:' + ast.dump(node))
+        upper = self.getupper(node)
+        
+
     def visit_Call(self, node):
         logger.debug('Call fullname:')
-        logger.debug('Call node:' + ast.dump(node))
+        logger.info('Call node:' + ast.dump(node))
         
     def visitlist(self, node, upper):
         for x in node:
