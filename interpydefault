@@ -1,7 +1,18 @@
 digraph interpydefault {
-	"Apple.color" [label="Apple.color"]
-	main [label=main]
-	"Apple.color" -> "Apple.red()"
-	"Apple.color" -> "Apple.green()"
-	main -> "Apple.__init__()"
+	subgraph cluster_main {
+		graph [lable=main]
+		main [label=main]
+	}
+	subgraph cluster_Apple {
+		graph [lable=Apple]
+		"Apple.color" [label="Apple.color"]
+		"Apple.red" [label="Apple.red"]
+		"Apple.green" [label="Apple.green"]
+		"Apple.__init__" [label="Apple.__init__"]
+		"Apple.color" [label="Apple.color"]
+	}
+	"Apple.color" -> "Apple.red"
+	"Apple.color" -> "Apple.green"
+	main -> "Apple.__init__"
+	main -> "Apple.color"
 }

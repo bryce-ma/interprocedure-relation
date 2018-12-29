@@ -115,9 +115,24 @@ def main():
 
 ---
 
-# Result
+<table border="0">
+  <tr>
+    <td><img src='asset/interpydefault.png' height="120%"> </td>
+        <td> vs </td>
+    <td><img src='asset/pycallgraph.png' height="120%"> </td>
 
-# ![](asset/interpydefault.png)
+  </tr>
+</table>
+
+---
+
+#### interpy/visitor1.py
+
+<table border="0">
+  <tr>
+    <td><img src='asset/interpyvisitor1.png' width="100%"> </td>
+  </tr>
+</table>
 
 ---
 
@@ -129,7 +144,5 @@ def main():
 ---
 
 # Q&A
-
----
 
 

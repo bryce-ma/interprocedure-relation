@@ -6,6 +6,7 @@
   - [version 0.2 (TODO)](#version-02-todo)
   - [Documentation & Slides](#documentation--slides)
   - [Demo](#demo)
+    - [install requirments](#install-requirments)
     - [run demo from command line](#run-demo-from-command-line)
     - [or run demo with default file ./test/apple.py](#or-run-demo-with-default-file-testapplepy)
     - [run all tests](#run-all-tests)
@@ -24,11 +25,18 @@
 
 ## Documentation & Slides
 
-See [documentation](doc/documentation.md) and [presentation](doc/slides.html) under the `doc` dir.
+See [documentation](doc/documentation.md) and [presentation](doc/slides.pdf) under the `doc` dir.
 
 ## Demo
 
 > Please use Python 3 to run all the tests and the demo
+
+### install requirments
+
+> python3 -m pip install graphviz
+> python3 -m pip install astpretty
+
+And also intall [Graphviz](https://www.graphviz.org/download/) into you local system to view the output
 
 ### run demo from command line
 
@@ -47,4 +55,4 @@ See [documentation](doc/documentation.md) and [presentation](doc/slides.html) un
 
 ## build slides
 
-> marp --pdf --allow-local-files doc/slides.md
+> marp --pdf --html --allow-local-files doc/slides.md

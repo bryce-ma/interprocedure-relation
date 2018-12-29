@@ -52,9 +52,9 @@ class Visitor1(ast.NodeVisitor):
         self.table[node._fullname] = node
         self.visitbody(node)
 
-    # def visit_Call(self, node):
-    #     upper = self.getupper(node)
-    #     logger.debug("Call node's upper: " + upper._fullname)
+    def visit_Call(self, node):
+        upper = self.getupper(node)
+        # logger.debug("Call node's upper: " + upper._fullname)
         
     def visitlist(self, node, upper):
         for x in node:
@@ -66,7 +66,12 @@ class Visitor1(ast.NodeVisitor):
         upper = self.getupper(node)
         self.setfullname(node, upper)
         right = node.value
-        right._upper = upper
+        if isinstance(right, list):
+            self.visitlist(right, upper)
+        elif isinstance(right, ast.AST): 
+            right._upper = upper
+        else:
+            logger.debug('assign right value: '+ astpretty.format(node))
         lefts = node.targets
         for lname in lefts:
             if isinstance(lname, ast.Name):

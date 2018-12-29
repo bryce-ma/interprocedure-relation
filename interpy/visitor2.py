@@ -43,8 +43,9 @@ class Visitor2(ast.NodeTransformer):
             funcname = node.func.id
             # get ClassDef if there have one
             clssdef = self.table[funcname] if funcname in self.table.keys() else None
-            if not clssdef is None:
+            if isinstance(clssdef, ast.ClassDef):
                 logger.debug('class def get from global name binding: '+ clssdef.name)
+                self.edges[node._upper._fullname].append(namejoin(clssdef.name, '__init__'))
                 return clssdef
 
         # handle self.callsomething()
@@ -54,14 +55,14 @@ class Visitor2(ast.NodeTransformer):
             inst = func.value.id if isinstance(func.value, ast.Name) else ''
             if inst == 'self':
                 clssnode = self.locate_self(node)
-                self.edges[node._upper._fullname].append(namejoin(clssnode._fullname, method+'()'))
-                logger.debug('')
+                if node._upper is not None: 
+                    self.edges[node._upper._fullname].append(namejoin(clssnode._fullname, method))
             elif len(inst) > 0:
                 realname = self.getrealname(inst, node)
-                clss = self.table[realname]
+                clss = self.table.get(realname, None)
                 if isinstance(clss, ast.ClassDef):
                     # invoke the __init__() of class
-                    self.edges[node._upper._fullname].append(namejoin(clss.name, '__init__()'))
+                    self.edges[node._upper._fullname].append(namejoin(clss.name, method))
 
     def getrealname(self, name: str, node):
         uppername = node._upper._fullname

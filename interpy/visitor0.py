@@ -34,6 +34,7 @@ class Visitor0(ast.NodeTransformer):
     def visit_Compare(self, node):
         logger.debug('visit_Expr: ' + astpretty.pformat(node))
         return [self.visit(node.left)] + [self.visit(x) for x in node.comparators]
+    
 
 
         
