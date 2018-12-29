@@ -1,15 +1,13 @@
 import ast
 import log
 import logging
+import astpretty
+from utils import namejoin
+
 
 logger = logging.getLogger(name=__name__)
 # add _fullname attr to node
 # add _upper attr to node 
-def namejoin(name0:str, name1:str):
-    if name0.endswith('.'):
-        return name0 + name1
-    else:
-        return name1 if len(name0) == 0 else name0+ '.' + name1
 
 class Visitor1(ast.NodeVisitor):
     def __init__(self):
@@ -56,7 +54,12 @@ class Visitor1(ast.NodeVisitor):
         logger.debug('FunctionDef fullname:' + node._fullname)
         self.table[node._fullname] = node
         self.visitbody(node)
+
+    # def visit_Call(self, node):
+    #     upper = self.getupper(node)
+    #     logger.debug("Call node's upper: " + upper._fullname)
         
+
     def visitlist(self, node, upper):
         for x in node:
             if not isinstance(x, list):
