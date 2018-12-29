@@ -1,18 +1,56 @@
 digraph interpydefault {
-	subgraph cluster_main {
-		graph [lable=main]
-		main [label=main]
+	graph [rankdir=LR]
+	subgraph cluster_Response {
+		graph [lable=Response]
+		"Response.__exit__" [label="Response.__exit__"]
+		"Response.iter_lines" [label="Response.iter_lines"]
+		"Response.close" [label="Response.close"]
+		"Response.iter_content" [label="Response.iter_content"]
 	}
-	subgraph cluster_Apple {
-		graph [lable=Apple]
-		"Apple.color" [label="Apple.color"]
-		"Apple.red" [label="Apple.red"]
-		"Apple.green" [label="Apple.green"]
-		"Apple.__init__" [label="Apple.__init__"]
-		"Apple.color" [label="Apple.color"]
+	subgraph cluster_Request {
+		graph [lable=Request]
+		"Request.__init__" [label="Request.__init__"]
+		"Request.prepare" [label="Request.prepare"]
+		"Request.register_hook" [label="Request.register_hook"]
 	}
-	"Apple.color" -> "Apple.red"
-	"Apple.color" -> "Apple.green"
-	main -> "Apple.__init__"
-	main -> "Apple.color"
+	subgraph cluster_PreparedRequest {
+		graph [lable=PreparedRequest]
+		"PreparedRequest.prepare" [label="PreparedRequest.prepare"]
+		"PreparedRequest.copy" [label="PreparedRequest.copy"]
+		"PreparedRequest.prepare_url" [label="PreparedRequest.prepare_url"]
+		"PreparedRequest.prepare_body" [label="PreparedRequest.prepare_body"]
+		"PreparedRequest.prepare_auth" [label="PreparedRequest.prepare_auth"]
+		"PreparedRequest.prepare_hooks" [label="PreparedRequest.prepare_hooks"]
+		"PreparedRequest.__init__" [label="PreparedRequest.__init__"]
+		"PreparedRequest.prepare" [label="PreparedRequest.prepare"]
+		"PreparedRequest.prepare_method" [label="PreparedRequest.prepare_method"]
+		"PreparedRequest.prepare_url" [label="PreparedRequest.prepare_url"]
+		"PreparedRequest.prepare_headers" [label="PreparedRequest.prepare_headers"]
+		"PreparedRequest.prepare_cookies" [label="PreparedRequest.prepare_cookies"]
+		"PreparedRequest.prepare_body" [label="PreparedRequest.prepare_body"]
+		"PreparedRequest.prepare_auth" [label="PreparedRequest.prepare_auth"]
+		"PreparedRequest.prepare_hooks" [label="PreparedRequest.prepare_hooks"]
+		"PreparedRequest.__init__" [label="PreparedRequest.__init__"]
+		"PreparedRequest._encode_params" [label="PreparedRequest._encode_params"]
+		"PreparedRequest.prepare_content_length" [label="PreparedRequest.prepare_content_length"]
+		"PreparedRequest.prepare_content_length" [label="PreparedRequest.prepare_content_length"]
+		"PreparedRequest.register_hook" [label="PreparedRequest.register_hook"]
+	}
+	"Request.__init__" -> "Request.register_hook"
+	"Request.prepare" -> "PreparedRequest.__init__"
+	"Request.prepare" -> "PreparedRequest.prepare"
+	"PreparedRequest.prepare" -> "PreparedRequest.prepare_method"
+	"PreparedRequest.prepare" -> "PreparedRequest.prepare_url"
+	"PreparedRequest.prepare" -> "PreparedRequest.prepare_headers"
+	"PreparedRequest.prepare" -> "PreparedRequest.prepare_cookies"
+	"PreparedRequest.prepare" -> "PreparedRequest.prepare_body"
+	"PreparedRequest.prepare" -> "PreparedRequest.prepare_auth"
+	"PreparedRequest.prepare" -> "PreparedRequest.prepare_hooks"
+	"PreparedRequest.copy" -> "PreparedRequest.__init__"
+	"PreparedRequest.prepare_url" -> "PreparedRequest._encode_params"
+	"PreparedRequest.prepare_body" -> "PreparedRequest.prepare_content_length"
+	"PreparedRequest.prepare_auth" -> "PreparedRequest.prepare_content_length"
+	"PreparedRequest.prepare_hooks" -> "PreparedRequest.register_hook"
+	"Response.__exit__" -> "Response.close"
+	"Response.iter_lines" -> "Response.iter_content"
 }

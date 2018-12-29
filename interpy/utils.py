@@ -4,4 +4,9 @@ def namejoin(name0:str, name1:str):
     else:
         return name1 if len(name0) == 0 else name0+ '.' + name1
 
-flatten = lambda l: [item for sublist in l for item in sublist]
+def flatten(origin, l):
+    if isinstance(l, list):
+        for sub in l:
+            origin.append(sub)
+    else:
+        origin.append(l)

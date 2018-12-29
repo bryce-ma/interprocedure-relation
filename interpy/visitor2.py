@@ -55,7 +55,8 @@ class Visitor2(ast.NodeTransformer):
             inst = func.value.id if isinstance(func.value, ast.Name) else ''
             if inst == 'self':
                 clssnode = self.locate_self(node)
-                if node._upper is not None: 
+                upper = node._upper if hasattr(node, '_upper') else None
+                if upper is not None: 
                     self.edges[node._upper._fullname].append(namejoin(clssnode._fullname, method))
             elif len(inst) > 0:
                 realname = self.getrealname(inst, node)
@@ -65,7 +66,7 @@ class Visitor2(ast.NodeTransformer):
                     self.edges[node._upper._fullname].append(namejoin(clss.name, method))
 
     def getrealname(self, name: str, node):
-        uppername = node._upper._fullname
+        uppername = node._upper._fullname if hasattr(node, '_upper') else ''
         return namejoin(uppername, name)
 
     def locate_self(self,node) -> Optional[ast.AST]:

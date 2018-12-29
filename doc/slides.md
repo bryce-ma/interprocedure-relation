@@ -136,6 +136,16 @@ def main():
 
 ---
 
+#### requests/models.py
+
+<table border="0">
+  <tr>
+    <td><img src='asset/models.png' height="65%"> </td>
+  </tr>
+</table>
+
+---
+
 # TODOs
 
 - 多文件解析

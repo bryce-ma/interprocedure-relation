@@ -23,6 +23,7 @@ class Analyzer():
 
     def build_graph(self, edges: dict):
         g = Digraph(self.name, filename=self.name, format='png')
+        g.graph_attr['rankdir'] = 'LR'
         allnode = [x for x in edges.keys()] + [ item for sublist in edges.values() for item in sublist]
         subs = set([x.split('.')[0] for x in allnode])
         for prefix in subs:

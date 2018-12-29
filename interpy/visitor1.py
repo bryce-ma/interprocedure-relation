@@ -2,7 +2,7 @@ import ast
 import log
 import logging
 import astpretty
-from utils import namejoin
+from utils import namejoin, flatten
 
 
 logger = logging.getLogger(name=__name__)
