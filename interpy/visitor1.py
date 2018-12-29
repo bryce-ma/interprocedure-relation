@@ -31,10 +31,7 @@ class Visitor1(ast.NodeVisitor):
         return node._upper if hasattr(node, '_upper')  else None
 
     def visitbody(self, node):
-        for x in node.body:
-            if not isinstance(x, list):
-                x._upper = node
-            self.visit(x)
+        self.visitlist(node.body, node)
 
     def visit_Module(self, node):
         upper = self.getupper(node) # must None
@@ -59,7 +56,6 @@ class Visitor1(ast.NodeVisitor):
     #     upper = self.getupper(node)
     #     logger.debug("Call node's upper: " + upper._fullname)
         
-
     def visitlist(self, node, upper):
         for x in node:
             if not isinstance(x, list):
@@ -70,8 +66,9 @@ class Visitor1(ast.NodeVisitor):
         upper = self.getupper(node)
         self.setfullname(node, upper)
         right = node.value
-        left = node.targets
-        for lname in left:
+        right._upper = upper
+        lefts = node.targets
+        for lname in lefts:
             if isinstance(lname, ast.Name):
                 id = self.getid(lname)
                 fullname = namejoin(node._fullname, id)

@@ -1,5 +1,7 @@
 digraph interpydefault {
 	"Apple.color" [label="Apple.color"]
-	"Apple.color" -> "Apple.red"
-	"Apple.color" -> "Apple.green"
+	main [label=main]
+	"Apple.color" -> "Apple.red()"
+	"Apple.color" -> "Apple.green()"
+	main -> "Apple.__init__()"
 }
