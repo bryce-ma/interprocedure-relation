@@ -1,0 +1,5 @@
+digraph interpydefault {
+	"Apple.color" [label="Apple.color"]
+	"Apple.color" -> "Apple.red"
+	"Apple.color" -> "Apple.green"
+}

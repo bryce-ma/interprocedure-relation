@@ -5,7 +5,8 @@ from visitor1 import Visitor1
 from visitor2 import Visitor2
 
 class Analyzer():
-    def __init__(self):
+    def __init__(self, name='interpydefault'):
+        self.name = name
         self.vistor1 = Visitor1()
 
     def analyze(self, tree):
@@ -21,7 +22,7 @@ class Analyzer():
         self.build_graph(visitor2.edges)
 
     def build_graph(self, edges: dict):
-        g = Digraph('apple', filename='applegragh', format='png')
+        g = Digraph(self.name, filename=self.name, format='png')
         for name in edges.keys():
             g.node(name, name)
         es = []
@@ -31,8 +32,6 @@ class Analyzer():
         g.save()
         g.view()
         
-
-
 
 if __name__ == "__main__":
     g = Digraph('hello', filename='hello', format='png')
