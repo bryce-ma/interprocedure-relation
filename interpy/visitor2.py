@@ -66,7 +66,8 @@ class Visitor2(ast.NodeTransformer):
                     self.edges[node._upper._fullname].append(namejoin(clss.name, method))
 
     def getrealname(self, name: str, node):
-        uppername = node._upper._fullname if hasattr(node, '_upper') else ''
+        upper = node._upper if hasattr(node, '_upper') else None
+        uppername = upper._fullname if not upper is None else ''
         return namejoin(uppername, name)
 
     def locate_self(self,node) -> Optional[ast.AST]:

@@ -1,9 +1,67 @@
 digraph interpydefault {
 	graph [rankdir=LR]
-	subgraph cluster_Visitor2 {
-		graph [lable=Visitor2]
-		"Visitor2.visit_Assign" [label="Visitor2.visit_Assign"]
-		"Visitor2.visit" [label="Visitor2.visit"]
+	subgraph cluster_Model {
+		graph [lable=Model]
+		"Model.compile" [label="Model.compile"]
+		"Model._make_train_function" [label="Model._make_train_function"]
+		"Model._set_inputs" [label="Model._set_inputs"]
+		"Model.fit" [label="Model.fit"]
+		"Model.evaluate" [label="Model.evaluate"]
+		"Model.predict" [label="Model.predict"]
+		"Model.train_on_batch" [label="Model.train_on_batch"]
+		"Model.test_on_batch" [label="Model.test_on_batch"]
+		"Model.predict_on_batch" [label="Model.predict_on_batch"]
+		"Model.compute_mask" [label="Model.compute_mask"]
+		"Model._check_trainable_weights_consistency" [label="Model._check_trainable_weights_consistency"]
+		"Model.build" [label="Model.build"]
+		"Model._standardize_user_data" [label="Model._standardize_user_data"]
+		"Model._standardize_user_data" [label="Model._standardize_user_data"]
+		"Model._uses_dynamic_learning_phase" [label="Model._uses_dynamic_learning_phase"]
+		"Model._make_train_function" [label="Model._make_train_function"]
+		"Model._make_test_function" [label="Model._make_test_function"]
+		"Model._standardize_user_data" [label="Model._standardize_user_data"]
+		"Model._uses_dynamic_learning_phase" [label="Model._uses_dynamic_learning_phase"]
+		"Model._make_test_function" [label="Model._make_test_function"]
+		"Model._standardize_user_data" [label="Model._standardize_user_data"]
+		"Model._uses_dynamic_learning_phase" [label="Model._uses_dynamic_learning_phase"]
+		"Model._make_predict_function" [label="Model._make_predict_function"]
+		"Model._standardize_user_data" [label="Model._standardize_user_data"]
+		"Model._uses_dynamic_learning_phase" [label="Model._uses_dynamic_learning_phase"]
+		"Model._make_train_function" [label="Model._make_train_function"]
+		"Model.train_function" [label="Model.train_function"]
+		"Model._standardize_user_data" [label="Model._standardize_user_data"]
+		"Model._uses_dynamic_learning_phase" [label="Model._uses_dynamic_learning_phase"]
+		"Model._make_test_function" [label="Model._make_test_function"]
+		"Model.test_function" [label="Model.test_function"]
+		"Model._standardize_user_data" [label="Model._standardize_user_data"]
+		"Model._uses_dynamic_learning_phase" [label="Model._uses_dynamic_learning_phase"]
+		"Model._make_predict_function" [label="Model._make_predict_function"]
+		"Model.predict_function" [label="Model.predict_function"]
 	}
-	"Visitor2.visit_Assign" -> "Visitor2.visit"
+	"Model.compile" -> "Model.compute_mask"
+	"Model._make_train_function" -> "Model._check_trainable_weights_consistency"
+	"Model._set_inputs" -> "Model.build"
+	"Model.fit" -> "Model._standardize_user_data"
+	"Model.fit" -> "Model._standardize_user_data"
+	"Model.fit" -> "Model._uses_dynamic_learning_phase"
+	"Model.fit" -> "Model._make_train_function"
+	"Model.fit" -> "Model._make_test_function"
+	"Model.evaluate" -> "Model._standardize_user_data"
+	"Model.evaluate" -> "Model._uses_dynamic_learning_phase"
+	"Model.evaluate" -> "Model._make_test_function"
+	"Model.predict" -> "Model._standardize_user_data"
+	"Model.predict" -> "Model._uses_dynamic_learning_phase"
+	"Model.predict" -> "Model._make_predict_function"
+	"Model.train_on_batch" -> "Model._standardize_user_data"
+	"Model.train_on_batch" -> "Model._uses_dynamic_learning_phase"
+	"Model.train_on_batch" -> "Model._make_train_function"
+	"Model.train_on_batch" -> "Model.train_function"
+	"Model.test_on_batch" -> "Model._standardize_user_data"
+	"Model.test_on_batch" -> "Model._uses_dynamic_learning_phase"
+	"Model.test_on_batch" -> "Model._make_test_function"
+	"Model.test_on_batch" -> "Model.test_function"
+	"Model.predict_on_batch" -> "Model._standardize_user_data"
+	"Model.predict_on_batch" -> "Model._uses_dynamic_learning_phase"
+	"Model.predict_on_batch" -> "Model._make_predict_function"
+	"Model.predict_on_batch" -> "Model.predict_function"
 }
